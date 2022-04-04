@@ -13,6 +13,56 @@
 	</head>
 	<body>
 		<h1>J Search</h1>
+		<form action="" method="get">
+			<span>
+				<label for="keywords">Keywords: </label>
+				<input type="text" id="keywords" name="keywords"/>
+			</span>
+			<span>
+				<label for="category">Category: </label>
+				<input type="text" id="category" name="category"/>	
+			</span>
+			<span>
+				<label for="round">Round: </label>
+				<select id="round" name="round">
+					<option label=" "></option>
+					<option value="1">Single Jeopardy</option>
+					<option value="2">Double Jeopardy</option>
+					<option value="3">Final Jeopardy</option>
+				</select>
+			</span>
+			<span>
+				<label for="value">Value: </label>
+				<select id="value" name="value">
+					<option label=" "></option>
+					<option>100</option>
+					<option>200</option>
+					<option>300</option>
+					<option>400</option>
+					<option>500</option>
+					<option>600</option>
+					<option>800</option>
+					<option>1000</option>
+					<option>1200</option>
+					<option>1600</option>
+					<option>2000</option>
+				</select>
+			</span>
+			<span>
+				<label for="double">Daily Double: </label>
+				<input type="checkbox" id="double" name="double"/>
+			</span>
+			<span>
+				<label for="start">Start Date: </label>
+				<input type="date" id="start" name="start"/>
+			</span>
+			<span>
+				<label for="end">End Date: </label>
+				<input type="date" id="end" name="end"/>
+			</span>
+			<button>Search!</button>
+		</form>
+
 		<script type="text/javascript" src="js/main.js"></script>
 	</body>
 </html>
