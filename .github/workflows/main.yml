@@ -1,9 +1,9 @@
 name: CI
 on:
   push:
-    branches: [ "master" ]
+    branches: [ "aws" ]
   pull_request:
-    branches: [ "master" ]
+    branches: [ "aws" ]
   workflow_dispatch:
 jobs:
   deploy:

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+    	<meta charset="utf-8">
+    	<meta name="description" content="This is where your description goes">
+    	<meta name="keywords" content="one, two, three">
+
+		<title>J Search</title>
+
+		<!-- external CSS link -->
+		<link rel="stylesheet" href="css/normalize.css">
+		<link rel="stylesheet" href="css/style.css">
+	</head>
+	<body>
+		<h1>J Search</h1>
+		<form action="/search" method="get">
+			<span>
+				<label for="keywords">Keywords: </label>
+				<input type="text" id="keywords" name="keywords"/>
+			</span>
+			<span>
+				<label for="category">Category: </label>
+				<input type="text" id="category" name="category"/>	
+			</span>
+			<span>
+				<label for="round">Round: </label>
+				<select id="round" name="round">
+					<option label=" "></option>
+					<option value="1">Single Jeopardy</option>
+					<option value="2">Double Jeopardy</option>
+					<option value="3">Final Jeopardy</option>
+				</select>
+			</span>
+			<span>
+				<label for="value">Value: </label>
+				<select id="value" name="value">
+					<option label=" "></option>
+					<option>100</option>
+					<option>200</option>
+					<option>300</option>
+					<option>400</option>
+					<option>500</option>
+					<option>600</option>
+					<option>800</option>
+					<option>1000</option>
+					<option>1200</option>
+					<option>1600</option>
+					<option>2000</option>
+				</select>
+			</span>
+			<span>
+				<label for="double">Daily Double: </label>
+				<input type="checkbox" id="double" name="double"/>
+			</span>
+			<span>
+				<label for="start">Start Date: </label>
+				<input type="date" id="start" name="start"/>
+			</span>
+			<span>
+				<label for="end">End Date: </label>
+				<input type="date" id="end" name="end"/>
+			</span>
+			<button id="search" type="submit">Search!</button>
+		</form>
+		<br/>
+        <div style="height: 1px; background-color: black"></div>
+        <br/>
+		<div class="container">
+            <label style="display: block; margin:auto;">Results: </label>
+            <% for(let clue of clues) {%>
+                <div class="card">
+                <div style="height: 160px; display: flex; flex-direction: column">
+                    <header><%= clue.label %></header>
+                    <header> <%= clue.category %> </header>
+                    <span style="flex: 1; display: flex; align-items: center; font-size: 12px;">
+                        <%= clue.answer %>
+                    </span>
+                </div>
+                <div style="height: 1px; background-color: black"></div>
+                <div style="height: 70px; justify-content: center;">
+                    <details>
+                        <summary>Answer</summary>
+                        <%= clue.question %>
+                    </details></div>
+                <footer>
+                    <%= clue.air_date %>
+                </footer>
+            </div>
+            <% } %>
+		</div>
+	</body>
+</html>
