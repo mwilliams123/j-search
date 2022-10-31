@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const mysql = require('mysql');
+const mysql = require('mysql2');
 const routes = require("./routes/main");
 
 require("dotenv").config({ path: "./config/.env" });
@@ -33,22 +33,7 @@ connection.connect(function(err) {
   console.log('Connected as thread id: ' + connection.threadId);
 });
 
-/*
-let connection = mysql.createConnection({
-    host: process.env.DB_HOST,
-    user: process.env.SQL_USER,
-    database: process.env.SQL_DATABASE,
-    password: process.env.SQL_PASSWORD,
-});
-*/
-
-//const connection = mysql.createConnection(config);
-/*
-connection.connect(function(err) {
-    if (err) throw err;
-    console.log("DB Connected!");
-});
-*/
+app.set('connection', connection)
 
 
 app.set("view engine", "ejs");

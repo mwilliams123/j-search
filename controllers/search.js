@@ -4,7 +4,9 @@ module.exports = {
     },
     search: async (req, res) => {
         try {
-          const clues = [{answer: 'This dessert is sometimes served with ice cream.', question: 'pie', category: 'FOOD STUFF', air_date: '2020-1-5', 'label': 200}];
+          const connection = req.app.get('connection')
+          let [clues, _] = await connection.promise().query(`SELECT * FROM jeopardy LIMIT 10`);
+          console.log(clues)
           res.render("search.ejs", { clues: clues });
         } catch (err) {
           console.log(err);
