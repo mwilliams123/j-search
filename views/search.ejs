@@ -83,7 +83,7 @@
                         <%= clue.question %>
                     </details></div>
                 <footer>
-                    <%= clue.air_date %>
+                    <%= clue.air_date.toLocaleDateString('en-us', { year:"numeric", month:"short", day:"numeric"}) %>
                 </footer>
             </div>
             <% } %>
